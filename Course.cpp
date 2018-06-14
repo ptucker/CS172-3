@@ -30,9 +30,21 @@ void Course::addStudent(const string& name)
 	numberOfStudents++;
 }
 
-void Course::dropStudent(const string& name)
+void Course::dropStudent(const string& name, int size)
 {
-	
+	for (int j = 0; j < size; j++)
+	{
+		if (students[j] == name)
+		{
+			students[j] = "";
+		}
+	}
+}
+
+void Course::clear()
+{
+	delete[] students;
+	students = new string[1];
 }
 
 string* Course::getStudents() const
